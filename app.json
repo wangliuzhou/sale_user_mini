@@ -1,6 +1,20 @@
 {
   "pages": [
-    "pages/index/index"
+    "pages/login/index",
+    "pages/index/index",
+    "pages/role/roleType/index",
+    "pages/role/roleList/index",
+    "pages/role/roleDetail/index",
+    "pages/mine/index",
+    "pages/point/pointList/index",
+    "pages/point/pointDetail/index",
+    "pages/scheme/schemeList/index",
+    "pages/scheme/schemeDetail/index",
+    "pages/storageManage/index",
+    "pages/seviceIn/index",
+    "pages/syncScheme/index",
+    "pages/scheme/cateList/index",
+    "pages/scheme/goodsList/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -9,8 +23,30 @@
     "navigationStyle": "custom",
     "navigationBarTextStyle": "white"
   },
+  "tabBar": {
+    "color": "#8799a3",
+    "selectedColor": "#1296db",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/tabbar/index.png",
+        "selectedIconPath": "images/tabbar/index_use.png"
+      },
+      {
+        "pagePath": "pages/mine/index",
+        "text": "我的",
+        "iconPath": "images/tabbar/mine.png",
+        "selectedIconPath": "images/tabbar/mine_use.png"
+      }
+    ],
+    "position": "bottom"
+  },
   "usingComponents": {
-    "cu-custom": "/colorui/components/cu-custom"
+    "cu-custom": "/colorui/components/cu-custom",
+    "calendar": "/components/calendar/calendar"
   },
   "sitemapLocation": "sitemap.json"
 }

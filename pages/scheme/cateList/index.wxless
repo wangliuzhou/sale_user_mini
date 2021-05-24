@@ -1,0 +1,23 @@
+.cate-tips {
+  height: 100rpx;
+  line-height: 100rpx;
+}
+.item {
+  margin-top: 24rpx;
+  display: flex;
+  align-items: center;
+  background: #fff;
+  height: 200rpx;
+  padding-right: 48rpx;
+  box-sizing: border-box;
+  image {
+    width: 140rpx;
+    height: 140rpx;
+    margin: 0 48rpx;
+  }
+  .item-left {
+    display: flex;
+    align-items: center;
+    flex: 1;
+  }
+}

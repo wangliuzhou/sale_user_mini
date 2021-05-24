@@ -1,17 +1,74 @@
 <cu-custom bgColor="bg-gradual-blue">
-  <view slot="content">ColorUI 空白模板</view>
+	<view slot="content">管理</view>
 </cu-custom>
-<view class="margin-xl padding-xl bg-white radius shadow shadow-lg">
-  <view class="flex justify-center">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo" class='cu-btn round bg-green shadow'> 获取头像昵称 </button>
-    <block wx:else>
-      <view class='text-center'>
-        <view class="cu-avatar xl round solids" style="background-image:url({{userInfo.avatarUrl}})"></view>
-        <view class="padding">{{userInfo.nickName}}</view>
-      </view>
-    </block>
-  </view>
+
+<view class='index-top text-white'>
+	<image src="{{info.sysset.shoplogo}}" />
+	<view class='flex nav'>
+		<view class="{{active===0?'active':''}}" bindtap="chooseActive" data-index='{{0}}'>
+			昨日
+		</view>
+		<view class="mid {{active===1?'active':''}}" bindtap="chooseActive" data-index='{{1}}'>
+			今日
+		</view>
+		<view class="{{active===2?'active':''}}" bindtap="chooseActive" data-index='{{2}}'>
+			本月
+		</view>
+	</view>
+	<view class='sale-money padding-top'>
+		<view>
+			销售金额（元）
+		</view>
+		<view class='money'>
+			{{info.report_price}}
+		</view>
+	</view>
+	<view class='order padding-top'>
+		<view>
+			<view>订单数（笔）</view>
+			<view class='money'>
+				{{info.report_ordernum}}
+			</view>
+		</view>
+		<view>
+			<view>分成金额（元）</view>
+			<view class='money'>
+				{{info.report_shareprice}}
+			</view>
+		</view>
+	</view>
 </view>
-<view class="text-center margin-top">
-  <text class="text-grey text-xl">{{motto}}</text>
+<view class='card-box'>
+	<view class=''>
+		<view>订单总数</view>
+		{{info.order_num}}
+	</view>
+	<view>
+		<view>设备管理</view>
+		{{info.device_num}}
+	</view>
+	<view>
+		<view>缺货预警</view>
+		{{info.device_lack}}
+	</view>
 </view>
+<view class='container'>
+	<view class='list-box'>
+		<block wx:for="{{list}}" wx:key='path'>
+			<view class='item' bindtap='goPage' data-path='{{item.path}}'>
+				<view class='item-left'>
+					<view class='item-title'>
+						{{item.title}}
+					</view>
+					<view class='item-desc'>
+						{{item.desc}}
+					</view>
+				</view>
+				<view class='item-right'>
+					<image src="{{item.image}}" />
+				</view>
+			</view>
+		</block>
+	</view>
+</view>
+

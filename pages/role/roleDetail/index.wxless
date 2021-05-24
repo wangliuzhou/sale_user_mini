@@ -1,0 +1,67 @@
+.role-container {
+  background: #fff;
+  margin: 24rpx;
+  border-radius: 8rpx;
+  font-size: 30rpx;
+  .title {
+    font-size: 32rpx;
+    font-weight: 500;
+  }
+  .role-type {
+    height: 140rpx;
+    line-height: 140rpx;
+    border-bottom: 1px solid #eee;
+    padding-left: 24rpx;
+  }
+  .card-list {
+    display: flex;
+    flex-wrap: wrap;
+    .item-top {
+      margin-bottom: 12rpx;
+    }
+    .card-item {
+      width: 50%;
+      border-bottom: 1px solid #eee;
+      padding: 24rpx;
+      .item-bottom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .require {
+          margin-top: 20rpx;
+          color: red;
+          font-size: 40rpx;
+        }
+      }
+    }
+    .card-item-line {
+      width: 100%;
+      padding: 24rpx;
+    }
+  }
+}
+.choose-all-btn {
+  margin: 0 48rpx 0 12rpx;
+}
+
+.point-content {
+  height: 500rpx;
+  overflow: scroll;
+  padding: 0 24rpx;
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+  .point-item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 36rpx;
+    border-bottom: 1px solid #eee;
+    padding: 24rpx;
+    &:nth-last-of-type(1) {
+      border: none;
+    }
+  }
+}

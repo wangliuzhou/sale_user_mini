@@ -1,0 +1,27 @@
+<view class="time-picker" bindtap='showPicker'>
+	<image src='/images/calendar.svg' style='width:40rpx;height:40rpx' wx:if="{{showIcon}}" />
+	{{formatDateText||"请选择日期"}}
+</view>
+<calendar
+ id="calendar"
+ class='content'
+ mode='pickerRange'
+ dot-days="{{dotDays}}"
+ days-desc="{{daysDesc}}"
+ dot-color="#0000ff"
+ show-more-days="{{false}}"
+ show-more-months="{{true}}"
+ selected-mode='round'
+ selected-date='{{selectedDate}}'
+ min-date='{{minDate}}'
+ max-date='{{maxDate}}'
+ bindOnMonthChange="onMonthChange"
+ bindOnDayClick='onDayClick'
+ bindOnRangeComplete='onRangeComplete'
+ language='{{language}}'
+ days-style='{{daysStyle}}'
+/>
+
+<!-- begin-date='{{beginDate}}'
+ end-date='{{endDate}}'-->
+

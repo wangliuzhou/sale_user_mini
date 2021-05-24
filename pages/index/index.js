@@ -1,56 +1,75 @@
+import { post } from "../../utils/request";
+
 //index.js
 //获取应用实例
-const app = getApp()
+const app = getApp();
 
 Page({
   data: {
-    StatusBar: app.globalData.StatusBar,
-    CustomBar: app.globalData.CustomBar,
-    motto: 'Hi 开发者！',
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
-  },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
-  onLoad: function () {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse){
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
+    active: 1,
+    info: "",
+    list: [
+      {
+        title: "点位管理",
+        desc: "创建/编辑点位",
+        image: "../../images/index/point.png",
+        path: "/pages/point/pointList/index"
+      },
+      {
+        title: "方案管理",
+        desc: "创建/编辑方案",
+        image: "../../images/index/function.png",
+        path: "/pages/scheme/schemeList/index"
+      },
+      // {
+      //   title: "活动管理",
+      //   desc: "创建/开启活动",
+      //   image: "../../images/1.png"
+      // },
+      {
+        title: "用户管理",
+        desc: "创建/编辑用户",
+        image: "../../images/index/user.png",
+        path: "/pages/role/roleType/index"
+      },
+      {
+        title: "订单管理",
+        desc: "订单记录/查询",
+        image: "../../images/index/order.png"
+      },
+      {
+        title: "运维管理",
+        desc: "设备维护/补货",
+        image: "../../images/index/run.png"
       }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-        }
-      })
-    }
+    ]
   },
-  getUserInfo: function(e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
-    })
+  async chooseActive(e) {
+    wx.showLoading({
+      title: "加载中..."
+    });
+    const { index } = e.currentTarget.dataset;
+    const info = await post({
+      r: "manage.home",
+      datetype: index
+    });
+    this.setData({ info, active: index });
+    wx.hideLoading();
+  },
+  goPage(e) {
+    const { path } = e.currentTarget.dataset;
+    wx.navigateTo({
+      url: path
+    });
+  },
+  onLoad: async function() {},
+  onShow() {
+    this.chooseActive({
+      currentTarget: {
+        dataset: {
+          index: this.data.active
+        }
+      }
+    });
   }
-})
+});

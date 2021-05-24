@@ -1,2 +1,9 @@
 @import "colorui/main.wxss";
 @import "colorui/icon.wxss";
+
+/* page {
+  background: #fff !important;
+} */
+.flex-center {
+  align-items: center;
+}

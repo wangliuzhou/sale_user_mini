@@ -1,0 +1,96 @@
+// schemeDetai html
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">{{id?'方案编辑':"方案添加"}}</view>
+</cu-custom>
+<view class='name'>
+	<input
+	 type=""
+	 placeholder="请输入方案名"
+	 value='{{info.name}}'
+	 bindinput='nameChange'
+	/>
+	<text class='cuIcon-edit'>{{}}</text>
+</view>
+
+<block wx:for="{{info.lists}}" wx:key='index'>
+	<view class='item'>
+		<view class='top solid-bottom'>
+			<view class='img-box' bindtap='chooseCate' data-index='{{index}}'>
+				<view class='count'>{{index+1}}</view>
+				<image src="{{item.thumb}}" class='thumb' />
+			</view>
+			<view class='top-info'>
+				<view>
+					<view class='title' wx:if='{{item.title}}'>{{item.catename}}-{{item.title}}</view>
+					<view class='title' wx:else>请选择商品</view>
+				</view>
+				<view>
+					<view class='title'>商品售价</view>
+					<input
+					 type=""
+					 placeholder="填写商品出售价格"
+					 value='{{item.marketprice}}'
+					 bindinput='onInput'
+					 data-type='marketprice'
+					 data-index='{{index}}'
+					/>
+				</view>
+				<view>
+					<view class='title'>商品成本价</view>
+					<input
+					 type=""
+					 placeholder="填写商品商品成本价"
+					 value='{{item.costprice}}'
+					 bindinput='onInput'
+					 data-type='costprice'
+					 data-index='{{index}}'
+					/>
+				</view>
+				<view>
+					<view class='title'>点位分成</view>
+					<input
+					 type=""
+					 placeholder="填写商品出售价格"
+					 value='{{item.sharescale}}'
+					 bindinput='onInput'
+					 data-type='sharescale'
+					 data-index='{{index}}'
+					/>
+				</view>
+				<view>
+					<view class='title'>备注显示</view>
+					<input
+					 type=""
+					 placeholder="填写商品出售价格"
+					 value='{{item.remarks}}'
+					 bindinput='onInput'
+					 data-type='remarks'
+					 data-index='{{index}}'
+					/>
+				</view>
+			</view>
+		</view>
+		<view class='bottom'>
+			<view class='tips'>
+				同步此设置至其他格子：
+				<text class='text-red'>*当前格子所有信息均会同步</text>
+			</view>
+			<view class='nums'>
+				<view
+				 class='num'
+				 data-index='{{index}}'
+				 bindtap="onTapNum"
+				 wx:for="{{[1,2,3,4,5,6,7,8,9,'全']}}"
+				 wx:key='index'
+				>{{item}}
+				</view>
+			</view>
+		</view>
+	</view>
+</block>
+
+<view class="padding flex flex-direction submit-btn">
+	<button class="cu-btn bg-blue lg shadow-blur" bindtap='handleSubmit'>提交</button>
+</view>
+
