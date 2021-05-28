@@ -6,61 +6,25 @@ Page({
     info: {},
     list: [
       {
-        title: "账单明细",
+        title: "我的订单",
         icon: "/images/mine/zhmx.png",
         path: "/pages/moneyDetail/index"
       },
       {
-        title: "账户绑定",
+        title: "常见问题",
         icon: "/images/mine/zhbd.png",
         path: "/pages/accountBind/index"
-      },
-      // {
-      //   title: "合约时间",
-      //   icon: "cuIcon-attentionfill",
-      //   func: ""
-      // },
-      {
-        title: "修改密码",
-        icon: "/images/mine/xgmm.png",
-        path: "/pages/changePsw/index"
-      },
-      {
-        title: "退出账号",
-        icon: "/images/mine/tczh.png"
       }
+      // {
+      //   title: "联系客服",
+      //   icon: "/images/mine/kefu.png",
+      //   path: "/pages/changePsw/index"
+      // }
     ]
   },
   onLoad: function(options) {},
 
-  attached(obj) {
-    let that = this;
-    let i = 0;
-    let conut = 20;
-    numDH();
-    function numDH() {
-      if (i < conut) {
-        setTimeout(function() {
-          that.setData({
-            starCount: i,
-            forksCount: i,
-            visitTotal: i
-          });
-          i++;
-          numDH();
-        }, 30);
-      } else {
-        that.setData(obj);
-      }
-    }
-  },
   onShow: function() {
-    const obj = {
-      starCount: 3000,
-      forksCount: 484,
-      visitTotal: 24000
-    };
-    this.attached(obj);
     this.getInfo();
   },
   async getInfo() {
@@ -75,11 +39,6 @@ Page({
   goPage(e) {
     const { path } = e.currentTarget.dataset;
     if (!path) {
-      // 退出账号
-      wx.clearStorageSync();
-      wx.reLaunch({
-        url: "/pages/login/index"
-      });
     } else {
       wx.navigateTo({
         url: path

@@ -1,26 +1,10 @@
 {
   "pages": [
-    "pages/login/index",
     "pages/index/index",
-    "pages/role/roleType/index",
-    "pages/role/roleList/index",
-    "pages/role/roleDetail/index",
+    "pages/login/index",
     "pages/mine/index",
-    "pages/point/pointList/index",
-    "pages/point/pointDetail/index",
-    "pages/scheme/schemeList/index",
-    "pages/scheme/schemeDetail/index",
-    "pages/storageManage/index",
-    "pages/seviceIn/index",
-    "pages/syncScheme/index",
-    "pages/scheme/cateList/index",
-    "pages/scheme/goodsList/index",
     "pages/order/orderDetail/index",
-    "pages/order/orderList/index",
-    "pages/data/index",
-    "pages/moneyDetail/index",
-    "pages/accountBind/index",
-    "pages/changePsw/index"
+    "pages/order/orderList/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -42,12 +26,6 @@
         "selectedIconPath": "images/tabbar/index_use.png"
       },
       {
-        "pagePath": "pages/data/index",
-        "text": "统计",
-        "iconPath": "images/tabbar/data_default.png",
-        "selectedIconPath": "images/tabbar/data_select.png"
-      },
-      {
         "pagePath": "pages/mine/index",
         "text": "我的",
         "iconPath": "images/tabbar/mine.png",
@@ -57,8 +35,7 @@
     "position": "bottom"
   },
   "usingComponents": {
-    "cu-custom": "/colorui/components/cu-custom",
-    "calendar": "/components/calendar/calendar"
+    "cu-custom": "/colorui/components/cu-custom"
   },
   "sitemapLocation": "sitemap.json"
 }

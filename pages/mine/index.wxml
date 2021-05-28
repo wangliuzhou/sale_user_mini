@@ -3,27 +3,9 @@
 		<open-data type="userAvatarUrl" />
 	</view>
 	<view class="text-lg">
-		<text wx:if='{{info.nickname}}'>{{info.nickname}}({{info.levelname}})</text>
+		<open-data type="userNickName" />
 	</view>
 	<image src="/images/wave.gif" mode="scaleToFill" class="gif-wave" />
-</view>
-<view class="padding-top padding-bottom flex text-center text-grey bg-white shadow-warp moneny-box">
-	<view class="flex flex-direction solid-right">
-		<view>
-			可用余额（元）
-		</view>
-		<view class="text-xxl text-orange">{{info.credit2||'-/-'}}</view>
-	</view>
-	<view class="flex flex-direction solid-right">
-		<view>
-			积分
-		</view>
-		<view class="text-xxl text-orange">{{info.credit1||'-/-'}}</view>
-	</view>
-	<view class="flex get-money" style='flex:0.8'>
-		<image src='/images/mine/tx.png' />
-		<view class='text-orange'>提现</view>
-	</view>
 </view>
 
 <view class="cu-list menu card-menu margin-top shadow-lg radius">
@@ -39,16 +21,18 @@
 				</view>
 			</view>
 		</block>
+		<view class="block-wrap">
+			<button class="title-wrap" open-type="contact" hover-class="none">
+				<view class='flex'>
+					<image src='/images/mine/kefu.png' style='margin-bottom' />
+					<view class="title">联系客服</view>
+				</view>
+				<view class="foot">{{}}</view>
+			</button>
+		</view>
 	</scroll-view>
 </view>
-<view
- class='phone text-xxl'
- style="color:{{info.phonecolor||'#fff'}}"
- bindtap="tapPhone"
- wx:if='{{info.phone==1}}'
->
-	<text class="cuIcon-service">{{}}</text>
-</view>
+
 <view class='copyright text-grey'>
 	{{info.copyright||'版权信息'}}
 </view>

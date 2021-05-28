@@ -1,9 +1,0 @@
-.public {
-  display: flex;
-  align-items: center;
-  background: #fff;
-  height: 90rpx;
-  border: 1px solid #eee;
-  padding: 24rpx;
-  box-sizing: border-box;
-}

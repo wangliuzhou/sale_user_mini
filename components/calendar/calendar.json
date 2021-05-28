@@ -1,6 +1,0 @@
-{
-  "component": true,
-  "usingComponents": {
-    "calendar2": "/components/calendar/index"
-  }
-}

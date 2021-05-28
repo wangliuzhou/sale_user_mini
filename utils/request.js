@@ -16,9 +16,9 @@ const request = ({ method, data, header }) => {
       if (data.error === 0) {
         return data;
       } else if (data.error === 100001) {
-        wx.redirectTo({
-          url: "/pages/login/index"
-        });
+        // wx.redirectTo({
+        //   url: "/pages/login/index"
+        // });
       } else {
         wx.showToast({
           title: data.message || "服务器异常",
