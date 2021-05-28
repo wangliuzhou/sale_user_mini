@@ -23,8 +23,14 @@ const formatDate = date => {
   const day = date.getDate();
   return [year, month, day].map(formatNumber).join("-");
 };
+const formatMD = date => {
+  const month = date.getMonth() + 1;
+  const day = date.getDate();
+  return [month, day].map(formatNumber).join("-");
+};
 
 module.exports = {
   formatTime: formatTime,
-  formatDate
+  formatDate,
+  formatMD
 };

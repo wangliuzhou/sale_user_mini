@@ -39,7 +39,7 @@
 	</view>
 </view>
 <view class='card-box'>
-	<view class=''>
+	<view class='' bindtap='goPage' data-path='/pages/order/orderList/index'>
 		<view>订单总数</view>
 		{{info.order_num}}
 	</view>

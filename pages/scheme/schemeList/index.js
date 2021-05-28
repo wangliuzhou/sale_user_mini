@@ -65,7 +65,8 @@ Page({
    */
   onReachBottom: function() {
     console.log("onReachBottom");
-    if (this.data.page < this.data.total) {
+    const { page, total, psize } = this.data;
+    if (page < total / psize) {
       this.setData({ page: this.data.page + 1 });
       this.getList();
     }

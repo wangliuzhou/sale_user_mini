@@ -29,7 +29,7 @@
 	</view>
 </view>
 
-<view class='list-box' style='margin-top:{{2*CustomBar+110}}rpx'>
+<view class='list-box' style='margin-top:{{2*CustomBar+80}}rpx'>
 	<block wx:for="{{list}}" wx:key='id'>
 		<view class='item solid '>
 			<view class="item-left solid-right" bindtap="goPage" data-id='{{item.id}}'>

@@ -29,7 +29,7 @@
 <view class="cu-list menu card-menu margin-top shadow-lg radius">
 	<scroll-view scroll-y class="scrollPage">
 		<block wx:for="{{list}}" wx:key='title'>
-			<view class="block-wrap">
+			<view class="block-wrap" bindtap='goPage' data-path='{{item.path}}'>
 				<view class="title-wrap">
 					<view class='flex'>
 						<image src='{{item.icon}}' />

@@ -14,7 +14,13 @@
     "pages/seviceIn/index",
     "pages/syncScheme/index",
     "pages/scheme/cateList/index",
-    "pages/scheme/goodsList/index"
+    "pages/scheme/goodsList/index",
+    "pages/order/orderDetail/index",
+    "pages/order/orderList/index",
+    "pages/data/index",
+    "pages/moneyDetail/index",
+    "pages/accountBind/index",
+    "pages/changePsw/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -34,6 +40,12 @@
         "text": "首页",
         "iconPath": "images/tabbar/index.png",
         "selectedIconPath": "images/tabbar/index_use.png"
+      },
+      {
+        "pagePath": "pages/data/index",
+        "text": "统计",
+        "iconPath": "images/tabbar/data_default.png",
+        "selectedIconPath": "images/tabbar/data_select.png"
       },
       {
         "pagePath": "pages/mine/index",

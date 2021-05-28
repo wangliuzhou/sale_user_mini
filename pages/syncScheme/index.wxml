@@ -1,2 +1,71 @@
-<!--pages/syncScheme/index.wxml-->
-<text>pages/syncScheme/index.wxml</text>
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">同步方案</view>
+</cu-custom>
+
+<view class='top'>
+	<view class='top-info'>
+		<view class="left">
+			<view class='title'>
+				<picker bindchange="PickerChange" value="{{index}}" range="{{schemeListFormat}}">
+					<view class="picker">
+						{{index?schemeListFormat[index]:'请选择方案'}}
+					</view>
+				</picker>
+			</view>
+			<view>
+				<text class='cuIcon-edit'>{{}}</text>
+				选择方案
+			</view>
+		</view>
+		<navigator url="/pages/scheme/schemeDetail/index">
+			<view class="text-orange">
+				<text class='cuIcon-roundadd'>{{}}</text>
+				添加方案
+			</view>
+		</navigator>
+	</view>
+	<view>
+		<text class='text-red'>*</text>
+		确认方案后选择设备卡片，点击"完成同步"同步方案，点击右侧图标添加方案
+	</view>
+</view>
+
+<view class='bottom'>
+	<view>
+		<view class='all-check-box'>一键全选
+			<view wx:if='{{!allCheck}}' class="not-check margin-left-xs" bindtap='allCheck' />
+			<view wx:else class='cuIcon-roundcheck text-orange margin-left-xs' bindtap='allCheck'>{{}}</view>
+		</view>
+	</view>
+	<view class='service-list'>
+		<block wx:for='{{devicelist}}' wx:key='id'>
+			<view class='service-item solid' bindtap='toogleChoose' data-index='{{index}}'>
+				<view class='choosed cuIcon-roundcheckfill text-orange' wx:if='{{item.checked}}'>
+					{{}}
+				</view>
+				<view class='service-deviceNo'>{{item.deviceNo}}</view>
+				<view class='service-bottom'>
+					<view class='service-image'>
+						<image src="{{item.thumb}}" />
+					</view>
+					<view class='service-right'>
+						<view class='service-name'>
+							方案名：
+							<text class='text-orange'>{{item.schemename||'无'}}</text>
+						</view>
+						<view class='service-location'>
+							备注：
+							<text class='text-orange'>{{item.remarks || '无'}}</text>
+						</view>
+					</view>
+				</view>
+			</view>
+		</block>
+	</view>
+</view>
+
+<view class="padding flex flex-direction submit-btn">
+	<button class="cu-btn bg-blue lg shadow-blur" bindtap='handleSubmit'>完成同步</button>
+</view>
+

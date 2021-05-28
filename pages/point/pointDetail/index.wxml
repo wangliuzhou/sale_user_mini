@@ -127,7 +127,7 @@
 			<view class='title item-top'>已入驻设备</view>
 			<view class='service-list'>
 				<block wx:for='{{info.devicelist}}' wx:key='id'>
-					<view class='service-item solid'>
+					<view class='service-item'>
 						<view class='service-deviceNo'>{{item.deviceNo}}</view>
 						<view class='service-bottom'>
 							<view class='service-image'>

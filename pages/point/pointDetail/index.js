@@ -12,16 +12,19 @@ Page({
     }
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
+  onReady() {
+    this.calendar = this.selectComponent("#calendar2");
+    if (this.data.id) {
+      this.getPointDetail(this.data.id);
+    }
+  },
   onLoad: function(options) {
     console.log(options);
     const { id } = options;
     this.setData({ id });
-    if (options.id) {
-      this.getPointDetail(options.id);
-    }
+    // if (options.id) {
+    //   this.getPointDetail(options.id);
+    // }
   },
   async getPointDetail(id) {
     wx.showLoading({ title: "加载中..." });
@@ -34,6 +37,7 @@ Page({
       var endDate = info.dealer_endtime.substr(0, 10);
     }
     this.setData({ info, beginDate, endDate }, () => {
+      console.log("this.calendar", 222, this.calendar);
       this.calendar.setFormatDateText();
     });
     wx.hideLoading();
@@ -90,8 +94,5 @@ Page({
     this.data.info.dealer_endtime = end;
     this.setData({ info: this.data.info });
     console.log(this.data.info);
-  },
-  onReady() {
-    this.calendar = this.selectComponent("#calendar2");
   }
 });

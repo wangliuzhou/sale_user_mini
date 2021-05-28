@@ -9,8 +9,14 @@ Component({
       type: Boolean,
       value: true
     },
-    beginDate: String,
-    endDate: String
+    beginDate: {
+      type: String,
+      value: ""
+    },
+    endDate: {
+      type: String,
+      value: ""
+    }
   },
 
   /**
@@ -28,7 +34,7 @@ Component({
    * 组件的方法列表
    */
   ready() {
-    this.calendar = this.selectComponent("#calendar");
+    this.calendar2 = this.selectComponent("#calendar");
   },
   methods: {
     onDayClick: function(event) {
@@ -45,13 +51,17 @@ Component({
     },
     onMonthChange: function(event) {},
     showPicker() {
-      this.calendar.showPicker();
+      this.calendar2.showPicker();
+      this.triggerEvent("onShowPicker", this.calendar2.data.showCalendar);
     },
     setFormatDateText() {
-      if (this.properties.beginDate && this.properties.endDate) {
-        const a = formatDate(new Date(this.properties.beginDate));
-        const b = formatDate(new Date(this.properties.endDate));
-        this.setData({ formatDateText: a + " 至 " + b });
+      if (this && this.data) {
+        const { beginDate, endDate } = this.data;
+        if (beginDate && endDate) {
+          const a = formatDate(new Date(beginDate));
+          const b = formatDate(new Date(endDate));
+          this.setData({ formatDateText: a + " 至 " + b });
+        }
       }
     }
   }

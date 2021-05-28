@@ -3,7 +3,10 @@ Page({
   /**
    * 页面的初始数据
    */
-  data: {},
+  data: {
+    mobile: "15388047731",
+    password: "15388047731"
+  },
 
   /**
    * 生命周期函数--监听页面加载
@@ -13,8 +16,7 @@ Page({
   },
   autoLogin() {
     const token = wx.getStorageSync("token");
-    const expire = wx.getStorageSync("expire");
-    if (token && expire > +new Date()) {
+    if (token) {
       wx.switchTab({
         url: "/pages/index/index"
       });
@@ -23,13 +25,12 @@ Page({
   async formSubmit(e) {
     const { mobile, password } = e.detail.value;
     console.log(e.detail.value);
-    const { token, expire, member } = await post({
+    const { token, member } = await post({
       r: "account.login",
       mobile,
       pwd: password
     });
     wx.setStorageSync("token", token);
-    wx.setStorageSync("expire", expire + +new Date());
     wx.setStorageSync("member", member);
     wx.switchTab({
       url: "/pages/index/index"

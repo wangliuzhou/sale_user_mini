@@ -81,13 +81,12 @@ Page({
     });
   },
   async getList() {
-    const { level, keyword, page, psize, list } = this.data;
+    const { keyword, page, psize, list } = this.data;
     wx.showLoading({
       title: "加载中..."
     });
     const info = await post({
       r: "manage.dealer.get_list",
-      level,
       keyword,
       page,
       psize
@@ -139,7 +138,8 @@ Page({
    */
   onReachBottom: function() {
     console.log("onReachBottom");
-    if (this.data.page < this.data.total) {
+    const { page, total, psize } = this.data;
+    if (page < total / psize) {
       this.setData({ page: this.data.page + 1 });
       this.getList();
     }

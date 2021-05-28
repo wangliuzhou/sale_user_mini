@@ -31,11 +31,6 @@ Page({
       this.data.info.level = level;
       this.setData({ info: this.data.info });
     }
-
-    // setTimeout(() => {
-    //   this.data.info.level = 3;
-    //   this.setData({ info: this.data.info });
-    // }, 1111);
   },
   async getRoleDetail(id) {
     wx.showLoading({ title: "加载中" });
@@ -147,6 +142,9 @@ Page({
     }
     this.data.info.bearcost = Number(!!info.bearcost);
     console.log("params===", this.data.info);
+    if (this.data.info.dealerids) {
+      this.data.info.dealerids = JSON.stringify(this.data.info.dealerids);
+    }
     // return;
     await post({
       r: "manage.user.submit",

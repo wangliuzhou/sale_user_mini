@@ -1,8 +1,9 @@
 <view class="time-picker" bindtap='showPicker'>
 	<image src='/images/calendar.svg' style='width:40rpx;height:40rpx' wx:if="{{showIcon}}" />
-	{{formatDateText||"请选择日期"}}
+	<text wx:if='{{formatDateText}}'>{{formatDateText}}</text>
+	<text wx:else class='text-grey'>请选择日期</text>
 </view>
-<calendar
+<calendar2
  id="calendar"
  class='content'
  mode='pickerRange'

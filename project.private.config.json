@@ -65,6 +65,54 @@
           "pathName": "pages/scheme/cateList/index",
           "query": "index=0",
           "scene": null
+        },
+        {
+          "name": "pages/seviceIn/index",
+          "pathName": "pages/seviceIn/index",
+          "query": "id=12",
+          "scene": null
+        },
+        {
+          "name": "pages/syncScheme/index",
+          "pathName": "pages/syncScheme/index",
+          "query": "id=2",
+          "scene": null
+        },
+        {
+          "name": "pages/order/orderList/index",
+          "pathName": "pages/order/orderList/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/order/orderDetail/index",
+          "pathName": "pages/order/orderDetail/index",
+          "query": "id=2",
+          "scene": null
+        },
+        {
+          "name": "pages/data/index",
+          "pathName": "pages/data/index",
+          "query": "id=2",
+          "scene": null
+        },
+        {
+          "name": "pages/moneyDetail/index",
+          "pathName": "pages/moneyDetail/index",
+          "query": "id=2",
+          "scene": null
+        },
+        {
+          "name": "pages/accountBind/index",
+          "pathName": "pages/accountBind/index",
+          "query": "id=2",
+          "scene": null
+        },
+        {
+          "name": "pages/changePsw/index",
+          "pathName": "pages/changePsw/index",
+          "query": "id=2",
+          "scene": null
         }
       ]
     }

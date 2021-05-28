@@ -71,6 +71,10 @@
   width: 44rpx;
   height: 44rpx;
 }
+.item .bottom .nums .numself {
+  color: #ccc;
+  border: 1px solid #ccc;
+}
 .submit-btn {
   margin-top: 24rpx;
   background-color: #fff;

@@ -71,6 +71,10 @@
         width: 44rpx;
         height: 44rpx;
       }
+      .numself {
+        color: #ccc;
+        border: 1px solid #ccc;
+      }
     }
   }
 }

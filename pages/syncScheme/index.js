@@ -1,66 +1,106 @@
+import { post } from "../../utils/request";
+
 // pages/syncScheme/index.js
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
-
+    id: "",
+    allCheck: false,
+    index: "0",
+    schemeList: [],
+    schemeListFormat: [],
+    devicelist: [
+      // {
+      //   deviceNo: "A0000001",
+      //   id: "1",
+      //   remarks: "测试",
+      //   schemename: "测试方案",
+      //   thumb:
+      //     "http://sell.hzybs.com/attachment/images/1/2020/05/mXftqqjiQI9jHq8HLihSetH9ThzjXh.jpg"
+      // },
+      // {
+      //   deviceNo: "A0000001",
+      //   id: "2",
+      //   remarks: "测试",
+      //   schemename: "测试方案",
+      //   thumb:
+      //     "http://sell.hzybs.com/attachment/images/1/2020/05/mXftqqjiQI9jHq8HLihSetH9ThzjXh.jpg"
+      // },
+      // {
+      //   deviceNo: "A0000001",
+      //   id: "3",
+      //   remarks: "测试",
+      //   schemename: "测试方案",
+      //   thumb:
+      //     "http://sell.hzybs.com/attachment/images/1/2020/05/mXftqqjiQI9jHq8HLihSetH9ThzjXh.jpg"
+      // }
+    ]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-
+  onLoad: function(options) {
+    this.setData({ id: options.id });
+    this.getSchemelist();
+    this.getInfo(options.id);
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  async getSchemelist() {
+    const { list } = await post({
+      r: "manage.scheme.get_list",
+      keyword: "",
+      page: 1,
+      psize: 9999999
+    });
+    console.log("方案列表", list);
+    const schemeListFormat = list.map(({ name }) => name);
+    this.setData({ schemeList: list, schemeListFormat });
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  async getInfo(id) {
+    const { devicelist } = await post({
+      r: "manage.dealer.op.schemein",
+      id
+    });
+    this.setData({ devicelist });
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
+  allCheck() {
+    const { allCheck, devicelist } = this.data;
+    devicelist.forEach(item => {
+      item.checked = !allCheck;
+    });
+    this.setData({ allCheck: !allCheck, devicelist: this.data.devicelist });
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
+  PickerChange(e) {
+    this.setData({ index: e.detail.value });
   },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
+  toogleChoose(e) {
+    const { index } = e.currentTarget.dataset;
+    const item = this.data.devicelist[index];
+    item.checked = !item.checked;
+    this.setData({ devicelist: this.data.devicelist });
+    this.setAllCheck();
   },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
+  setAllCheck() {
+    const allCheck = this.data.devicelist.every(item => item.checked);
+    this.setData({ allCheck });
   },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  async handleSubmit() {
+    let { id, devicelist, schemeList, index } = this.data;
+    const choosed = devicelist
+      .filter(item => item.checked)
+      .map(item => ({ deviceNo: item.deviceNo }));
+    const schemeid = schemeList[index].id;
+    await post({
+      r: "manage.dealer.op.postscheme",
+      dealerid: id,
+      schemeid,
+      detailed: JSON.stringify(choosed)
+    });
+    wx.showToast({
+      title: "同步成功",
+      icon: "nome"
+    });
   }
-})
+});

@@ -8,28 +8,26 @@ Page({
    */
   data: {
     index: "",
-    page: 1,
-    total: 0,
-    list: []
+    pcate: "",
+    list: [],
+    keyword: ""
   },
   onLoad: function(options) {
-    this.setData({ index: options.index });
+    this.setData({ index: options.index, pcate: options.id });
     this.getList();
   },
   async getList() {
-    const { keyword, page, list } = this.data;
     wx.showLoading({
       title: "加载中..."
     });
     const info = await post({
       r: "manage.goods.get_list",
-      keyword,
-      page
+      keyword: this.data.keyword,
+      pcate: this.data.pcate
     });
     wx.hideLoading();
     this.setData({
-      list: list.concat(info.list),
-      total: info.total
+      list: info.list
     });
   },
 
@@ -45,26 +43,14 @@ Page({
     if (prePage.setItemFromGoodsList) {
       prePage.setItemFromGoodsList(item);
     }
-
     wx.navigateBack({
       delta: 1
     });
   },
   search() {
-    this.setData({
-      list: [],
-      page: 1
-    });
     this.getList();
   },
   handleInput(e) {
     this.setData({ keyword: e.detail.value.trim() });
-  },
-  onReachBottom: function() {
-    console.log("onReachBottom");
-    if (this.data.page < this.data.total) {
-      this.setData({ page: this.data.page + 1 });
-      this.getList();
-    }
   }
 });

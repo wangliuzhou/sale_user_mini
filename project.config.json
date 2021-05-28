@@ -12,7 +12,7 @@
     "minified": true,
     "newFeature": true,
     "coverView": true,
-    "nodeModules": false,
+    "nodeModules": true,
     "autoAudits": false,
     "showShadowRootInWxmlPanel": true,
     "scopeDataCheck": false,
@@ -42,7 +42,7 @@
   "compileType": "miniprogram",
   "libVersion": "2.4.2",
   "appid": "wx6b3f5079fd4659d4",
-  "projectname": "ColorUI-template",
+  "projectname": "sale",
   "debugOptions": {
     "hidedInDevtools": []
   },

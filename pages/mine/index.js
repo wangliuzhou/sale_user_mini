@@ -8,12 +8,12 @@ Page({
       {
         title: "账单明细",
         icon: "/images/mine/zhmx.png",
-        func: ""
+        path: "/pages/moneyDetail/index"
       },
       {
         title: "账户绑定",
         icon: "/images/mine/zhbd.png",
-        func: ""
+        path: "/pages/accountBind/index"
       },
       // {
       //   title: "合约时间",
@@ -23,12 +23,11 @@ Page({
       {
         title: "修改密码",
         icon: "/images/mine/xgmm.png",
-        func: ""
+        path: "/pages/changePsw/index"
       },
       {
         title: "退出账号",
-        icon: "/images/mine/tczh.png",
-        func: ""
+        icon: "/images/mine/tczh.png"
       }
     ]
   },
@@ -72,5 +71,19 @@ Page({
     wx.makePhoneCall({
       phoneNumber: this.data.info.phonenumber
     });
+  },
+  goPage(e) {
+    const { path } = e.currentTarget.dataset;
+    if (!path) {
+      // 退出账号
+      wx.clearStorageSync();
+      wx.reLaunch({
+        url: "/pages/login/index"
+      });
+    } else {
+      wx.navigateTo({
+        url: path
+      });
+    }
   }
 });

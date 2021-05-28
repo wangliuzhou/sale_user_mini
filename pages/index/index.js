@@ -35,7 +35,8 @@ Page({
       {
         title: "订单管理",
         desc: "订单记录/查询",
-        image: "../../images/index/order.png"
+        image: "../../images/index/order.png",
+        path: "/pages/order/orderList/index"
       },
       {
         title: "运维管理",
@@ -58,6 +59,7 @@ Page({
   },
   goPage(e) {
     const { path } = e.currentTarget.dataset;
+    console.log(11, e, path);
     wx.navigateTo({
       url: path
     });
