@@ -13,105 +13,27 @@
     "miniprogram": {
       "list": [
         {
-          "name": "pages/index/index",
-          "pathName": "pages/index/index",
+          "name": "pages/goodsDetail/index",
+          "pathName": "pages/goodsDetail/index",
+          "query": "id=36&deviceid=A0000001",
+          "scene": null
+        },
+        {
+          "name": "pages/orderList/index",
+          "pathName": "pages/orderList/index",
+          "query": "id=36&deviceid=A0000001",
+          "scene": null
+        },
+        {
+          "name": "pages/questionList/index",
+          "pathName": "pages/questionList/index",
           "query": "",
           "scene": null
         },
         {
-          "name": "pages/role/roleType/index",
-          "pathName": "pages/role/roleType/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/role/roleList/index",
-          "pathName": "pages/role/roleList/index",
-          "query": "id=2&type=点位管理员",
-          "scene": null
-        },
-        {
-          "name": "pages/role/roleDetail/index",
-          "pathName": "pages/role/roleDetail/index",
-          "query": "id=2",
-          "scene": null
-        },
-        {
-          "name": "pages/mine/index",
-          "pathName": "pages/mine/index",
-          "query": "id=2&type=点位管理员",
-          "scene": null
-        },
-        {
-          "name": "pages/point/pointList/index",
-          "pathName": "pages/point/pointList/index",
-          "query": "id=2&type=点位管理员",
-          "scene": null
-        },
-        {
-          "name": "pages/scheme/schemeList/index",
-          "pathName": "pages/scheme/schemeList/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/scheme/schemeDetail/index",
-          "pathName": "pages/scheme/schemeDetail/index",
-          "query": "id=2",
-          "scene": null
-        },
-        {
-          "name": "pages/scheme/cateList/index",
-          "pathName": "pages/scheme/cateList/index",
-          "query": "index=0",
-          "scene": null
-        },
-        {
-          "name": "pages/seviceIn/index",
-          "pathName": "pages/seviceIn/index",
-          "query": "id=12",
-          "scene": null
-        },
-        {
-          "name": "pages/syncScheme/index",
-          "pathName": "pages/syncScheme/index",
-          "query": "id=2",
-          "scene": null
-        },
-        {
-          "name": "pages/order/orderList/index",
-          "pathName": "pages/order/orderList/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/order/orderDetail/index",
-          "pathName": "pages/order/orderDetail/index",
-          "query": "id=2",
-          "scene": null
-        },
-        {
-          "name": "pages/data/index",
-          "pathName": "pages/data/index",
-          "query": "id=2",
-          "scene": null
-        },
-        {
-          "name": "pages/moneyDetail/index",
-          "pathName": "pages/moneyDetail/index",
-          "query": "id=2",
-          "scene": null
-        },
-        {
-          "name": "pages/accountBind/index",
-          "pathName": "pages/accountBind/index",
-          "query": "id=2",
-          "scene": null
-        },
-        {
-          "name": "pages/changePsw/index",
-          "pathName": "pages/changePsw/index",
-          "query": "id=2",
+          "name": "pages/questionDetail/index",
+          "pathName": "pages/questionDetail/index",
+          "query": "id=1",
           "scene": null
         }
       ]

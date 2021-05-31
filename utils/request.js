@@ -24,7 +24,7 @@ const request = ({ method, data, header }) => {
           title: data.message || "服务器异常",
           icon: "none"
         });
-        throw new Error("服务器异常");
+        throw new Error(data.message || "服务器异常");
       }
     });
 };

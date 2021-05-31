@@ -3,8 +3,11 @@
     "pages/index/index",
     "pages/login/index",
     "pages/mine/index",
-    "pages/order/orderDetail/index",
-    "pages/order/orderList/index"
+    "pages/orderDetail/index",
+    "pages/orderList/index",
+    "pages/goodsDetail/index",
+    "pages/questionList/index",
+    "pages/questionDetail/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

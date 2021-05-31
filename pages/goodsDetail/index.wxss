@@ -1,0 +1,52 @@
+.swiper-box {
+  width: 100%;
+  height: 400rpx;
+  background: #fff;
+}
+.swiper-box .swiper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.swiper-box .swiper .swiper-item {
+  width: 100%;
+  height: 400rpx;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.swiper-box .swiper .swiper-item image {
+  width: 100%;
+  height: 400rpx;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+}
+.swiper-box .swiper .swiper-item .title {
+  color: #fff;
+  font-size: 30rpx;
+  text-align: center;
+}
+.public {
+  display: flex;
+  align-items: center;
+  height: 90rpx;
+  padding: 24rpx;
+  box-sizing: border-box;
+  background: #fff;
+  margin-top: 12rpx;
+}
+.public .title {
+  margin-right: 24rpx;
+}
+.rich {
+  padding: 24rpx;
+  box-sizing: border-box;
+  background: #fff;
+  margin-top: 12rpx;
+}
+.rich .title {
+  margin-bottom: 12rpx;
+}

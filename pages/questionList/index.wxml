@@ -1,0 +1,20 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">常见问题</view>
+</cu-custom>
+
+<block wx:for="{{list}}" wx:key='id'>
+	<view class="item" bindtap="goPage" data-id='{{item.id}}'>
+		<image class="" src="{{item.thumb}}" />
+		<view class='text-grey'>
+			<view class="title">{{item.title}}</view>
+			{{item.createtime}}
+		</view>
+	</view>
+</block>
+
+<view class='text-grey no-data-box' wx:if='{{list.length===0}}'>
+	<image class="" src="/images/no_data.png" />
+	暂无数据
+</view>
+

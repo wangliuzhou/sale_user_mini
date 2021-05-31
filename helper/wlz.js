@@ -77,7 +77,24 @@ let apiSpace = {
   //绘图
   draw: ["canvasToTempFilePath"],
   //剪贴板
-  clipboard: ["setClipboardData"]
+  clipboard: ["setClipboardData"],
+  //低功耗蓝牙
+  BLE: [
+    "writeBLECharacteristicValue",
+    "setBLEMTU",
+    "readBLECharacteristicValue",
+    "onBLEConnectionStateChange",
+    "onBLECharacteristicValueChange",
+    "offBLEConnectionStateChange",
+    "offBLECharacteristicValueChange",
+    "notifyBLECharacteristicValueChange",
+    "makeBluetoothPair",
+    "getBLEDeviceServices",
+    "getBLEDeviceRSSI",
+    "getBLEDeviceCharacteristics",
+    "createBLEConnection",
+    "closeBLEConnection"
+  ]
 };
 
 let rawNameArr = [];

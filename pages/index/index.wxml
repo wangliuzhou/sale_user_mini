@@ -1,4 +1,55 @@
 <cu-custom bgColor="bg-gradual-blue">
-	<view slot="content">管理</view>
+	<view slot="content">首页</view>
 </cu-custom>
+
+<block wx:if="{{deviceNo}}">
+	<view class="swiper-box">
+		<swiper class='swiper' autoplay='{{true}}' circular='{true{}}'>
+			<block wx:for="{{advs}}" wx:key="id">
+				<swiper-item class="swiper-item">
+					<image class="" src="{{item.thumb}}" />
+					<view class='title'>{{item.advname}}</view>
+				</swiper-item>
+			</block>
+		</swiper>
+	</view>
+	<view class='content-box'>
+		<view class="service-box">
+			<view class="left">
+				<image class="" src="{{device.thumb}}" />
+				<view>
+					智能设备
+				</view>
+			</view>
+			<view class='right'>
+				<view>
+					设备编号:
+					<text class='text-orange'>{{device.deviceNo}}</text>
+				</view>
+				<view>
+					电量:
+					<text class='text-orange'>{{device.electric}}%</text>
+				</view>
+			</view>
+		</view>
+	</view>
+
+	<view class="list-box">
+		<block wx:for="{{goodslist}}" wx:key='id'>
+			<view class='item' bindtap='goPage' data-id='{{item.id}}'>
+				<image class="" src="{{item.thumb}}" />
+				<view class='title'>
+					{{item.title}}
+				</view>
+				<view class='text-orange' style='font-weight: 600'>
+					￥{{item.marketprice}}
+				</view>
+			</view>
+		</block>
+	</view>
+</block>
+
+<view wx:else class='not-connect-ble-box'>
+	<image class="not-connect-ble" src="/images/not_connect_ble.png" mode='widthFix' />
+</view>
 

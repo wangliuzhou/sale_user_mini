@@ -1,0 +1,43 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">商品详情</view>
+</cu-custom>
+<view class="swiper-box">
+	<swiper class='swiper' autoplay='{{true}}' circular='{true{}}'>
+		<block wx:for="{{data.thumbs}}" wx:key="id">
+			<swiper-item class="swiper-item">
+				<image class="" src="{{item}}" />
+			</swiper-item>
+		</block>
+	</swiper>
+</view>
+
+<view class='public'>
+	<view class="title text-grey">商品名称</view>
+	<view class="info">{{data.title}}</view>
+</view>
+<view class='public'>
+	<view class="title text-grey">商品简述</view>
+	<view class="info">{{data.subtitle}}</view>
+</view>
+<view class='public'>
+	<view class="title text-grey">销售价格</view>
+	<view class="info">{{data.marketprice}}/{{data.unit}}</view>
+</view>
+<view class='public'>
+	<view class="title text-grey">格子编号</view>
+	<view class="info">{{data.cellNo}}</view>
+</view>
+<view class='public'>
+	<view class="title text-grey">格子备注</view>
+	<view class="info">{{data.remarks}}</view>
+</view>
+<view class='rich'>
+	<view class="title text-grey">商品描述</view>
+	<rich-text nodes="{{data.content}}" />
+</view>
+
+<view class="padding flex flex-direction submit-btn">
+	<button class="cu-btn bg-blue lg shadow-blur" bindtap='checkLogin'>购买</button>
+</view>
+

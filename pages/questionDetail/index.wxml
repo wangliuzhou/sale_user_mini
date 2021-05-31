@@ -1,0 +1,14 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">问题详情</view>
+</cu-custom>
+
+<view class="content-box">
+	<view class="title">{{data.title}}</view>
+	<view class="time">{{data.createtime}}</view>
+	<image class="" src="{{data.thumb}}" mode="widthFix" />
+	<view class="rich">
+		<rich-text nodes="{{data.content}}" />
+	</view>
+</view>
+
