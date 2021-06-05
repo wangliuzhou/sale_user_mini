@@ -18,11 +18,11 @@ Page({
     }
   },
 
-  onLoad: function(options) {
+  onLoad: function (options) {
     this.getList();
   },
 
-  onReachBottom: function() {
+  onReachBottom: function () {
     console.log("onReachBottom");
     const { page, total, psize } = this.data;
     if (page < total / psize) {
@@ -39,7 +39,7 @@ Page({
     const { page, status } = this.data;
     const { list } = await post({ r: "order.get_list", page, status });
     console.log(list);
-    this.setData({ list });
+    this.setData({ list: this.data.list.concat(list) });
     wx.hideLoading();
   },
   clickItem(e) {
